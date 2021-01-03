@@ -4,19 +4,19 @@ public class MonteCarloWorker implements Runnable {
     CalculationResult result;
     CoordinatesLimit x1Limit, x2Limit, x3Limit;
     private int totalShots;
-
+    Random random;
     public MonteCarloWorker(CalculationResult result, CoordinatesLimit x1Limit, CoordinatesLimit x2Limit, CoordinatesLimit x3Limit, int totalShots) {
         this.result = result;
         this.x1Limit = x1Limit;
         this.x2Limit = x2Limit;
         this.x3Limit = x3Limit;
         this.totalShots = totalShots;
+        random = new Random();
     }
 
     @Override
     public void run() {
         int hits = 0;
-        Random random = new Random();
         Point point;
 
         for (int i = 0; i < totalShots; i++) {

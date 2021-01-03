@@ -21,7 +21,7 @@ public class MonteCarlo {
             double x2 = x2Limit.getUpperLimit() * random.nextDouble();
             double x3 = x3Limit.getUpperLimit() * random.nextDouble();
             point = new Point(x1, x2, x3);
-            if (isHit(point)) ;
+            if (isHit(point))
             hits++;
         }
         return (((double) hits / (double) totalShots)) * cubeVolume;

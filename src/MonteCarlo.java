@@ -21,6 +21,7 @@ public class MonteCarlo {
                 hits++;
         }
         return (((double)hits/(double)totalShots))*cubeVolume;
+
     }
 
     private boolean isHit(Point point) {

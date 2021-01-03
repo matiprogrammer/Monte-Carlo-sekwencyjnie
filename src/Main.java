@@ -7,9 +7,9 @@ public class Main {
     x1^2+x3^2≤7
      */
     public static void main(String[] args) {
-    MonteCarlo monteCarlo=new MonteCarlo(1000000);
-   double solidVolume= monteCarlo.compute();
-   System.out.println(solidVolume);
+        MonteCarlo monteCarlo = new MonteCarlo(1000000);
+        double solidVolume = monteCarlo.compute();
+        System.out.println(solidVolume);
     }
 
 }

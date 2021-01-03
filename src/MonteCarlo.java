@@ -7,20 +7,24 @@ public class MonteCarlo {
         this.totalShots = totalShots;
     }
 
-    public double compute()
-    {
+    public double compute() {
         CoordinatesLimit x1Limit, x2Limit, x3Limit;
         x1Limit = new CoordinatesLimit(0, Math.sqrt(7));
         x2Limit = new CoordinatesLimit(0, Math.sqrt(12));
         x3Limit = new CoordinatesLimit(0, Math.sqrt(7));
-        double cubeVolume=x1Limit.getUpperLimit()* x2Limit.getUpperLimit()* x3Limit.getUpperLimit();
+        double cubeVolume = x1Limit.getUpperLimit() * x2Limit.getUpperLimit() * x3Limit.getUpperLimit();
         int hits = 0;
         Random random = new Random();
-        for (int i=0; i < totalShots; i++) {
-            if (isHit(new Point(x1Limit.getUpperLimit() * random.nextDouble(), x2Limit.getUpperLimit() * random.nextDouble(), x3Limit.getUpperLimit() * random.nextDouble())))
-                hits++;
+        Point point;
+        for (int i = 0; i < totalShots; i++) {
+            double x1 = x1Limit.getUpperLimit() * random.nextDouble();
+            double x2 = x2Limit.getUpperLimit() * random.nextDouble();
+            double x3 = x3Limit.getUpperLimit() * random.nextDouble();
+            point = new Point(x1, x2, x3);
+            if (isHit(point)) ;
+            hits++;
         }
-        return (((double)hits/(double)totalShots))*cubeVolume;
+        return (((double) hits / (double) totalShots)) * cubeVolume;
 
     }
 

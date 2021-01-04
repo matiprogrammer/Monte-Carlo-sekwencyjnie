@@ -1,5 +1,9 @@
+/**
+ * Klasa licząca objętośc bryły X na podstawie ilości trafionych punktów
+ */
 public class CalculationResult {
-    private volatile int hits=0, totalShots;
+    private volatile int hits = 0; //ilość punktów należących do X
+    private int totalShots; //ilość losowań
     private double cubeVolume;
 
     public CalculationResult(int totalShots, double cubeVolume) {
@@ -7,11 +11,18 @@ public class CalculationResult {
         this.cubeVolume = cubeVolume;
     }
 
+    /**
+     * Metoda dodaje ilość trafionych punktów do puli
+     *
+     */
     public synchronized void addHits(int hits) {
         this.hits += hits;
     }
 
-    public synchronized double getVolume() {
+    /**
+     * Metoda zwraca objętość bryły X
+     */
+    public double getVolume() {
         return ((double) hits / (double) totalShots) * cubeVolume;
     }
 }

@@ -1,3 +1,6 @@
+/**
+ * Klasa reprezentująca dolny i górny limit współrzędniej
+ */
 public class CoordinatesLimit {
     private double upperLimit, lowerLimit;
 
